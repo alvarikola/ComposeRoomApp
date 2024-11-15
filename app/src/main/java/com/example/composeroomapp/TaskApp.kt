@@ -1,6 +1,9 @@
 package com.example.composeroomapp
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -29,15 +32,15 @@ fun TaskApp(database: AppDatabase) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // Campo de texto para agregar una nueva tarea
-        androidx.compose.material.OutlinedTextField(
+        OutlinedTextField(
             value = newTaskName,
             onValueChange = { newTaskName = it },
-            label = { androidx.compose.material.Text("New Task") },
+            label = { Text("New Task") },
             modifier = Modifier.fillMaxWidth()
         )
 
         // Botón para agregar tarea
-        androidx.compose.material.Button(
+        Button(
             onClick = {
                 scope.launch(Dispatchers.IO) {
                     val newTask = Task(name = newTaskName)
@@ -47,12 +50,12 @@ fun TaskApp(database: AppDatabase) {
                 }
             }
         ) {
-            androidx.compose.material.Text("Add Task")
+            Text("Add Task")
         }
 
         // Mostrar lista de tareas
         tasks.forEach { task ->
-            androidx.compose.material.Text(text = task.name)
+            Text(text = task.name)
         }
     }
 }
