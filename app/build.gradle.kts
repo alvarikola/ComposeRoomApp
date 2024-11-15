@@ -2,12 +2,13 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
 }
 
 
 android {
     namespace = "com.example.composeroomapp"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.composeroomapp"
@@ -49,7 +50,7 @@ dependencies {
     implementation (libs.ui.tooling.preview)
     // Room
     implementation (libs.androidx.room.runtime)
-//    kapt (libs.androidx.room.compiler)
+    ksp (libs.androidx.room.compiler.v252)
     implementation (libs.androidx.room.ktx)
     // Lifecycle
     implementation (libs.androidx.lifecycle.runtime.ktx.v261)
