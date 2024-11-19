@@ -1,11 +1,10 @@
-package com.example.composeroomapp
+package com.example.composeroomapp.modelview
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.Composable
-import androidx.lifecycle.lifecycleScope
-import kotlinx.coroutines.launch
+import com.example.composeroomapp.data.AppDatabase
+import com.example.composeroomapp.view.TaskApp
 
 class MainActivity : ComponentActivity() {
 
